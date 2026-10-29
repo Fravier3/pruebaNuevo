@@ -19,7 +19,6 @@ test('counter, note, theme persist, offline shell and mobile layout work', async
   await context.setOffline(true);
   await expect(page.locator('#connection')).toHaveText('Sin conexión');
   await page.reload();
-  console.log('OFFLINE DIAGNOSTICS', errors, await page.content(), await page.evaluate(async()=>Promise.all((await caches.keys()).map(async k=>[k,(await (await caches.open(k)).keys()).map(r=>r.url)]))));
   await expect(page.getByLabel('Tu nota',{exact:true})).toHaveValue('Mi próxima idea <script>');
   await context.setOffline(false);
   await page.setViewportSize({width:390,height:844});

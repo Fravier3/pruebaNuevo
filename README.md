@@ -15,6 +15,10 @@ Node 22. `npm ci`, `npm run dev`. `npm run verify` ejecuta pruebas de almacenami
 - `tests/`: almacenamiento y pruebas de navegador.
 - `.github/workflows/deploy.yml`: npm ci, verificaciones, pruebas de navegador, subida exclusiva de dist y publicación en Pages.
 
+## Activación inicial de GitHub Pages
+
+La conexión permite escribir código y ejecutar Actions, pero no activar Pages por primera vez. En Settings → Pages → Build and deployment → Source, seleccionar **GitHub Actions**. Después, abrir Actions → Verify and deploy Fran Test → Run workflow (rama main). Las siguientes actualizaciones se publican automáticamente al cambiar main.
+
 ## Publicación y privacidad
 
 Vite usa `/pruebaNuevo/`, JS/CSS minificados, assets con hash y source maps desactivados. `dist` no se versiona. Solo `dist` se sube al artefacto Pages. Como el repositorio es público, todo el código fuente y la documentación del repositorio siguen siendo públicos. El JavaScript y CSS del navegador son inspeccionables: minificar no es una medida de seguridad ni vuelve privado el código.
