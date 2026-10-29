@@ -1,11 +1,12 @@
 export function setupPwa($, notify) {
   let registration;
   let reloading = false;
-  const hadController = Boolean(navigator.serviceWorker?.controller);
+  let hadController = Boolean(navigator.serviceWorker?.controller);
   const status = (text) => { $('update-status').textContent = text; };
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (hadController && !reloading) { reloading = true; location.reload(); }
+      hadController = true;
     });
     const watch = (reg) => {
       reg.addEventListener('updatefound', () => {
